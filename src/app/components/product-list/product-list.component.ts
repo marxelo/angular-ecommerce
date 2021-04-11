@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
   products: Product[];
   currentCategoryId: number;
+  currentCategoryName: string;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
@@ -24,13 +25,18 @@ export class ProductListComponent implements OnInit {
 
   listProducts() {
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+    console.log(this.route.snapshot.paramMap.has('name'));
 
     if (hasCategoryId) {
       // get de "id" param string. Convert string to a number using de "+ symbol"
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
+      // get the "name" param string
+      this.currentCategoryName = this.route.snapshot.paramMap.get('name');
+      console.log('aquixxex: ' + this.route.snapshot.paramMap.get('name'));
     } else {
-      // no categoryId is available...  default to categoryId 1
+      // no categoryId is available...  default to category Id 1
       this.currentCategoryId = 1;
+      this.currentCategoryName = 'Books';
     }
 
     this.productService
