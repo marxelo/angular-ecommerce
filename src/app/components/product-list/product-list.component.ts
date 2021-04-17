@@ -72,9 +72,9 @@ export class ProductListComponent implements OnInit {
     }
 
     this.previousCategoryId = this.currentCategoryId;
-    console.log(
-      `currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}}`
-    );
+    // console.log(
+    //   `currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}}`
+    // );
 
     // now get the products for the giver category id
     this.productService
